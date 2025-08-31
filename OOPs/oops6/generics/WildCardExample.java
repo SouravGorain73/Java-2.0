@@ -1,11 +1,28 @@
-public class CustomGenArrayList<T>{
+
+import java.util.List;
+
+//Here T should either be number or it's subclasses
+public class WildCardExample<T extends Number>{
 
     private Object[] data;
     private final int DEFAULT_SIZE = 10;
     private int size = 0;
 
-    public CustomGenArrayList(){
+    public WildCardExample(){
         this.data = new Object[DEFAULT_SIZE];
+    }
+
+    public void getList(List<Number> list){
+        //do something
+
+        //here you can only pass Number type(not it's subclasses)
+    }
+    
+    //WILD CARD IN JAVA
+    public void getList2(List<? extends Number> list){
+        //do something
+
+        //here you can only pass Number type and it's subclasses
     }
 
     public void add(T num){
@@ -63,21 +80,10 @@ public class CustomGenArrayList<T>{
 
     public static void main(String[] args) {
         // ArrayList list = new ArrayList();
-        CustomGenArrayList list  = new CustomGenArrayList();
-        list.add(45);
+        WildCardExample<Integer> list  = new WildCardExample();
+        list.add(76);
+        list.add(12);
         list.add(73);
-        list.add(35);
-        System.out.println(list.size());
-        list.add(21);
-        list.add(15);
-        list.add(13);
-        list.add(81);
-        list.add(99);
-        list.add(91);
-        list.add(63);
-        list.add(65);
-        System.out.println(list.size());
-        list.add("Name");
 
 
 
